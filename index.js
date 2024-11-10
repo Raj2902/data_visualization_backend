@@ -32,6 +32,15 @@ app.get("/api/data", async (req, res) => {
   }
 });
 
+app.get("/", async (req, res) => {
+  try {
+    res.json({ message: "server working fine." });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error in establishing server." });
+  }
+});
+
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });
